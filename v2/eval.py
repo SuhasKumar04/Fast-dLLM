@@ -50,7 +50,7 @@ def set_seed(seed):
 class Fast_dLLM_v2EvalHarness(LM):
     def __init__(
         self,
-        model_path='Efficient-Large-Model/Fast_dLLM_7B',
+        model_path='Efficient-Large-Model/Fast_dLLM_v2_7B',
         device="cuda",
         show_speed=False,
         max_new_tokens=2048,

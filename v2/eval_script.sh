@@ -1,7 +1,7 @@
 # Set the environment variables first before running the command.
 export HF_ALLOW_CODE_EVAL=1
 export HF_DATASETS_TRUST_REMOTE_CODE=true
-model_path=Efficient-Large-Model/Fast_dLLM_7B
+model_path=Efficient-Large-Model/Fast_dLLM_v2_7B
 
 task=mmlu
 accelerate launch eval.py --tasks ${task} --batch_size 1 --num_fewshot 5 \

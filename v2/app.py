@@ -26,7 +26,7 @@ def fix_seed(seed):
 fix_seed(42)
 
 # Load model and tokenizer - using Fast_dLLM model
-model_name = "Efficient-Large-Model/Fast_dLLM_7B"
+model_name = "Efficient-Large-Model/Fast_dLLM_v2_7B"
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
 # Load Fast_dLLM model instance

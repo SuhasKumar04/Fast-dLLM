@@ -2,7 +2,7 @@
 
 [![Project](https://img.shields.io/static/v1?label=Project&message=Github&color=blue&logo=github-pages)](https://nvlabs.github.io/Fast-dLLM/v2)
 [![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2509.26328)
-[![Model](https://img.shields.io/badge/🤗-Model-yellow)](https://huggingface.co/Efficient-Large-Model/Fast_dLLM_7B)
+[![Model](https://img.shields.io/badge/🤗-Model-yellow)](https://huggingface.co/Efficient-Large-Model/Fast_dLLM_v2_7B)
 
 Fast-dLLM v2 is a carefully designed block diffusion language model (dLLM) that efficiently adapts pretrained autoregressive (AR) models into dLLMs for parallel text generation, requiring only approximately 1B tokens of fine-tuning. This represents a **500x reduction** in training data compared to full-attention diffusion LLMs while preserving the original model's performance.
 
@@ -114,7 +114,7 @@ accelerate launch eval.py \
     --batch_size 32 \
     --num_fewshot 0 \
     --model fast_dllm_v2 \
-    --model_args model_path=Efficient-Large-Model/Fast_dLLM_7B,threshold=0.9
+    --model_args model_path=Efficient-Large-Model/Fast_dLLM_v2_7B,threshold=0.9
 ```
 
 ## 🏗️ Architecture
