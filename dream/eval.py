@@ -386,7 +386,7 @@ class Dream(LM):
             pbar.update(len(contexts))
 
             if self.save_dir is not None:
-                # 增量保存新生成的答案
+                # Incrementally save newly generated answers
                 for i, r in enumerate(responses):
                     with open(save_path, 'a', encoding='utf-8') as f:
                         f.write(json.dumps(r, ensure_ascii=False) + '\n')

@@ -23,7 +23,7 @@ from model.modeling_dream import DreamModel
 import types
 # Load model and tokenizer
 
-# 从命令行读取use_cache
+# Read use_cache from command line
 use_cache = True if input("Use cache? (y/n): ").lower() == 'y' else False
 
 if use_cache:

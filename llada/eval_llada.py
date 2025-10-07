@@ -371,7 +371,7 @@ class LLaDAEvalHarness(LM):
             output.extend(batched_generated_answer)
 
             if self.save_dir is not None:
-                # 增量保存新生成的答案
+                # Incrementally save newly generated answers
                 with open(save_path, 'a', encoding='utf-8') as f:
                     for generated_answer in batched_generated_answer:
                         f.write(json.dumps(generated_answer, ensure_ascii=False) + '\n')
