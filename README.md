@@ -5,6 +5,20 @@
 
 Fast-DLLM is a diffusion-based Large Language Model (LLM) inference acceleration framework that supports efficient inference for models like Dream and LLaDA.
 
+
+## News
+* \[2025.10.08\] We have open sourced Fast-dLLM v2. Have a look at our [webpage](https://nvlabs.github.io/Fast-dLLM/v2/), [model](https://huggingface.co/Efficient-Large-Model/Fast_dLLM_v2_7B), and [paper](https://arxiv.org/pdf/2509.26328)!
+* \[2025.08.01\] Our new online demo of Fast-dLLM: https://fast-dllm.hanlab.ai/, welcome to try!
+* \[2025.07.06\] Added factor-based parallel strategy and LLaDA-1.5 evaluation in `llada/eval_gsm8k.sh`.
+* \[2025.07.04\] We updated our paper with latest improvements and evaluation results.
+* \[2025.06.30\] Fast-dLLM has been integrated into [LLaDA-V](https://github.com/ML-GSAI/LLaDA-V). With Fast-dLLM, it acceleates the inference latency from 60s to 6s! Have a try [here](https://github.com/ML-GSAI/LLaDA-V/blob/main/train/generate_demo.py)!!
+
+## TODOs
+We will try our best to achieve
+- \[✅\] Inference and evaluation code
+- \[🚧\] Training code of Fast-dLLM v2
+- \[🚀\] vllm support
+
 ## Demo
 
 https://github.com/user-attachments/assets/32bbff97-6e60-4e14-95c0-2cbec136476f
@@ -14,12 +28,6 @@ https://github.com/user-attachments/assets/32bbff97-6e60-4e14-95c0-2cbec136476f
   <p>End-to-end speedup over vanilla LLaDA baseline</p>
 </div>
 
-
-## News
-* \[2025.08.01\] Our new online demo of Fast-dLLM: https://fast-dllm.hanlab.ai/, welcome to try!
-* \[2025.07.06\] Added factor-based parallel strategy and LLaDA-1.5 evaluation in `llada/eval_gsm8k.sh`.
-* \[2025.07.04\] We updated our paper with latest improvements and evaluation results.
-* \[2025.06.30\] Fast-dLLM has been integrated into [LLaDA-V](https://github.com/ML-GSAI/LLaDA-V). With Fast-dLLM, it acceleates the inference latency from 60s to 6s! Have a try [here](https://github.com/ML-GSAI/LLaDA-V/blob/main/train/generate_demo.py)!!
 
 
 ## Project Structure
@@ -140,6 +148,15 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 If you find this work useful, please cite our paper:
 
 ```bibtex
+@misc{wu2025fastdllmv2efficientblockdiffusion,
+      title={Fast-dLLM v2: Efficient Block-Diffusion LLM}, 
+      author={Chengyue Wu and Hao Zhang and Shuchen Xue and Shizhe Diao and Yonggan Fu and Zhijian Liu and Pavlo Molchanov and Ping Luo and Song Han and Enze Xie},
+      year={2025},
+      eprint={2509.26328},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.26328}, 
+}
 @misc{wu2025fastdllmtrainingfreeaccelerationdiffusion,
       title={Fast-dLLM: Training-free Acceleration of Diffusion LLM by Enabling KV Cache and Parallel Decoding}, 
       author={Chengyue Wu and Hao Zhang and Shuchen Xue and Zhijian Liu and Shizhe Diao and Ligeng Zhu and Ping Luo and Song Han and Enze Xie},
@@ -153,4 +170,4 @@ If you find this work useful, please cite our paper:
 
 ## Acknowledgements
 
-We would like to thank the authors of [LLaDA](https://github.com/llada-project/llada) and [Dream](https://github.com/dream-project/dream) for their excellent work and open-source contributions. 
+We would like to thank the authors of [LLaDA](https://github.com/llada-project/llada) and [Dream](https://github.com/dream-project/dream) for their excellent work and open-source contributions. We thank [Qwen2.5](https://github.com/QwenLM/Qwen2.5) for the base model architecture
