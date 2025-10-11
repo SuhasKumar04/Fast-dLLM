@@ -61,6 +61,41 @@ Comprehensive evaluation across diverse tasks:
 </div>
 
 
+## 🏋️ Training
+
+### Environment Setup
+First, create and activate a conda environment:
+
+```bash
+conda create -n lmflow python=3.9 -y
+conda activate lmflow
+conda install mpi4py
+```
+
+### Installation
+Install the package in development mode:
+
+```bash
+pip install -e .
+```
+
+### Data Preparation
+Download the training data (e.g., Alpaca dataset):
+
+```bash
+cd data
+bash download.sh alpaca
+```
+
+### Fine-tuning
+Run the fine-tuning script:
+
+```bash
+bash train_scripts/finetune_alpaca.sh
+```
+
+This will start the training process using the Alpaca dataset with the optimized block diffusion training recipe.
+
 ## 🎮 Quick Start
 
 ### Interactive Chatbot

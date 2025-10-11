@@ -16,7 +16,7 @@ Fast-DLLM is a diffusion-based Large Language Model (LLM) inference acceleration
 ## TODOs
 We will try our best to achieve
 - \[✅\] Inference and evaluation code
-- \[🚧\] Training code of Fast-dLLM v2
+- \[✅\] Training code of Fast-dLLM v2
 - \[🚀\] vllm support
 
 ## Demo
@@ -170,4 +170,4 @@ If you find this work useful, please cite our paper:
 
 ## Acknowledgements
 
-We would like to thank the authors of [LLaDA](https://github.com/llada-project/llada) and [Dream](https://github.com/dream-project/dream) for their excellent work and open-source contributions. We thank [Qwen2.5](https://github.com/QwenLM/Qwen2.5) for the base model architecture
+We would like to thank the authors of [LLaDA](https://github.com/llada-project/llada) and [Dream](https://github.com/dream-project/dream) for their excellent work and open-source contributions. We thank [Qwen2.5](https://github.com/QwenLM/Qwen2.5) for the base model architecture and [LMFlow](https://github.com/OptimalScale/LMFlow) for the training framework.
