@@ -432,31 +432,40 @@ class RotaryEmbedding(nn.Module):
     def apply_rotary_pos_emb(self, pos_sin: torch.Tensor, pos_cos: torch.Tensor, t: torch.Tensor) -> torch.Tensor:
         return ((t * pos_cos) + (self.rotate_half(t) * pos_sin)).to(t.dtype)
 
-    def forward(self, q: torch.Tensor, k: torch.Tensor, block_end_index: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, torch.Tensor]:
+    def forward(self, q: torch.Tensor, k: torch.Tensor,
+                block_end_index: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, torch.Tensor]:
         if self.config.rope_full_precision:
             q_, k_ = q.float(), k.float()
         else:
             q_, k_ = q, k
 
         with torch.autocast(q.device.type, enabled=False):
-            query_len, key_len = q_.shape[-2], k_.shape[-2]  # could be different if layer_past not None
+            query_len, key_len = q_.shape[-2], k_.shape[-2]
             pos_sin, pos_cos = self.get_rotary_embedding(key_len, q_.device)
             pos_sin = pos_sin.type_as(q_)
             pos_cos = pos_cos.type_as(q_)
+
+            # Build tensor indices instead of using .item()
             if block_end_index is None:
-                q_ = self.apply_rotary_pos_emb(
-                    pos_sin[:, :, key_len - query_len : key_len, :],
-                    pos_cos[:, :, key_len - query_len : key_len, :],
-                    q_,
-                )
+                start = key_len - query_len
+                end = key_len
             else:
-                q_ = self.apply_rotary_pos_emb(
-                    pos_sin[:, :, block_end_index.item() - query_len : block_end_index.item(), :],
-                    pos_cos[:, :, block_end_index.item() - query_len : block_end_index.item(), :],
-                    q_,
-                )
+                # block_end_index is a tensor; keep ops tensor-based
+                start = (block_end_index - query_len)
+                end = block_end_index
+
+            # Make an index tensor [start, ..., end-1] on the right device/dtype
+            idx = torch.arange(start, end, device=q_.device, dtype=torch.long)
+
+            # Use index_select on the sequence dimension (dim=2)
+            pos_sin_slice = pos_sin.index_select(2, idx)
+            pos_cos_slice = pos_cos.index_select(2, idx)
+
+            q_ = self.apply_rotary_pos_emb(pos_sin_slice, pos_cos_slice, q_)
             k_ = self.apply_rotary_pos_emb(pos_sin, pos_cos, k_)
+
         return q_.type_as(q), k_.type_as(k)
+
 
 
 class Activation(nn.Module):
