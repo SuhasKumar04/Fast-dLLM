@@ -81,7 +81,7 @@ https://github.com/user-attachments/assets/32bbff97-6e60-4e14-95c0-2cbec136476f
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/fast-dllm.git
+git clone https://github.com/NVlabs/Fast-dLLM.git
 cd fast-dllm
 ```
 
