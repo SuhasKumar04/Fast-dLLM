@@ -336,6 +336,17 @@ def get_transfer_index(
         # Transfer all masked positions whose confidence >= threshold
         # (No top-k; purely threshold-based)
         transfer_index = mask_index & (confidence >= threshold)
+
+        # at least one token is transferred "always unmask max c^i"
+        max_conf_indices = torch.argmax(confidence, dim=1, keepdim=True) # (B, 1)
+        force_mask = torch.zeros_like(transfer_index).scatter_(1, max_conf_indices, True)
+
+        # (Above Threshold) OR (Is Max Confidence)
+        transfer_index = transfer_index | force_mask
+
+        # Safety: do not unmask something that was not masked (consider fully unmasked rows)
+        transfer_index = transfer_index & mask_index
+
         return x0, transfer_index
 
     # Else: per-row top-k with varying k (num_transfer_tokens), fully batched
