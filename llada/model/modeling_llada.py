@@ -1344,6 +1344,8 @@ class LLaDAModel(nn.Module):
         attention_bias: Optional[torch.Tensor] = None,
         past_key_values: Optional[Sequence[Tuple[torch.Tensor, torch.Tensor]]] = None,
         use_cache: bool = False,
+        layer_skip: bool = False,
+        layer_cos_thr: float = 0.97,
         last_logits_only: bool = False,
         output_hidden_states: Optional[bool] = None,
         replace_position: Optional[torch.Tensor] = None,
@@ -1462,9 +1464,34 @@ class LLaDAModel(nn.Module):
         # decoder layers
         all_hidden_states = []
 
+        # ---- Layer-level compute skipping (within a denoising step) ----
+        # FLOPs proxy stats (fraction of layers skipped).
+        self._last_layer_total = self.config.n_layers
+        self._last_layer_skipped = 0
+
+        # IMPORTANT: disable skipping when KV cache is used (correctness).
+        effective_layer_skip = layer_skip and (not use_cache) and (self.config.block_group_size == 1)
+
+        prev_layer_input = None
+
+
         # Apply blocks one-by-one.
         if self.config.block_group_size == 1:
             for block_idx, block in enumerate(self.transformer.blocks):
+                # Skip policy: compare adjacent-layer INPUT hidden states.
+                # If the layer input is very similar to the previous layer input,
+                # we treat this layer as near-identity and skip its compute.
+                x_in = x
+                if effective_layer_skip and (prev_layer_input is not None):
+                    a = x_in.to(torch.float32)
+                    b = prev_layer_input.to(torch.float32)
+                    cos_mean = F.cosine_similarity(a, b, dim=-1).mean()
+                    if cos_mean >= layer_cos_thr:
+                        self._last_layer_skipped += 1
+                        prev_layer_input = x_in
+                        continue
+                prev_layer_input = x_in
+
                 if output_hidden_states:
                     # add hidden states
                     all_hidden_states.append(x)
@@ -1580,6 +1607,8 @@ class LLaDAModelLM(PreTrainedModel):
         past_key_values: Optional[List[torch.FloatTensor]] = None,
         labels: Optional[torch.LongTensor] = None,
         use_cache: Optional[bool] = None,
+        layer_skip: bool = False,
+        layer_cos_thr: float = 0.97,
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
@@ -1601,6 +1630,8 @@ class LLaDAModelLM(PreTrainedModel):
             attention_bias=attention_bias,
             past_key_values=past_key_values,
             use_cache=use_cache,
+            layer_skip=layer_skip,
+            layer_cos_thr=layer_cos_thr,
             output_hidden_states=output_hidden_states,
             replace_position=replace_position,
         )

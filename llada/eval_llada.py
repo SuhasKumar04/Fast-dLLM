@@ -67,6 +67,8 @@ class LLaDAEvalHarness(LM):
         save_dir=None,
         show_speed=False,
         dual_cache=False,
+        layer_skip=False,
+        layer_cos_thr=0.97,
         **kwargs,
     ):
         '''
@@ -132,6 +134,12 @@ class LLaDAEvalHarness(LM):
         self.save_dir = save_dir
         self.show_speed = show_speed
         self.dual_cache = dual_cache
+        self.layer_skip = layer_skip
+        self.layer_cos_thr = float(layer_cos_thr)
+        # Accumulate layer-skip stats across the whole eval run
+        self._layers_total = 0
+        self._layers_skipped = 0
+
     @property
     def rank(self):
         return self._rank
@@ -344,8 +352,25 @@ class LLaDAEvalHarness(LM):
                     generated_answer, nfe = generate_with_prefix_cache(self.model, input_ids, steps=self.steps, gen_length=self.gen_length, block_length=self.block_length, 
                                         temperature=0, remasking=self.remasking, mask_id=self.mask_id, threshold=self.threshold, factor=self.factor)
             else:
-                generated_answer, nfe = generate(self.model, input_ids, steps=self.steps, gen_length=self.gen_length, block_length=self.block_length, 
-                                        temperature=0, remasking=self.remasking, mask_id=self.mask_id, threshold=self.threshold, factor=self.factor)
+                generated_answer, nfe, stats = generate(
+                    self.model,
+                    input_ids,
+                    steps=self.steps,
+                    gen_length=self.gen_length,
+                    block_length=self.block_length,
+                    temperature=0,
+                    remasking=self.remasking,
+                    mask_id=self.mask_id,
+                    threshold=self.threshold,
+                    factor=self.factor,
+                    layer_skip=self.layer_skip,
+                    layer_cos_thr=self.layer_cos_thr,
+                )
+
+                # Accumulate compute stats for FLOPs proxy
+                if isinstance(stats, dict):
+                    self._layers_total += int(stats.get("layers_total", 0))
+                    self._layers_skipped += int(stats.get("layers_skipped", 0))
 
             if self.is_instruct and 'task_id' in req.doc and str(req.doc['task_id']).lower().startswith('humaneval'):
                 generated_answer_ids = generated_answer[:, input_ids.shape[1]:]

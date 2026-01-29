@@ -54,3 +54,16 @@ accelerate launch eval_llada.py --tasks ${task} --num_fewshot ${num_fewshot} \
 accelerate launch eval_llada.py --tasks ${task} --num_fewshot ${num_fewshot} \
 --confirm_run_unsafe_code --model llada_dist \
 --model_args model_path=${model_path},gen_length=${length},steps=${length},block_length=${block_length},use_cache=True,dual_cache=True,factor=${factor},show_speed=True
+
+
+# -----------------------------
+# Layer-skip sweep (FLOPs proxy)
+# Each run will append compute stats to runs/compute.jsonl and print LAYER_SKIP_SUMMARY.
+# Pair that with the GSM8K accuracy printed by lm-eval-harness to make your curve.
+# NOTE: Layer skipping is only enabled in the non-cache (baseline) path.
+# -----------------------------
+for thr in 0.95 0.97 0.99; do
+  accelerate launch eval_llada.py --tasks ${task} --num_fewshot ${num_fewshot} \
+  --confirm_run_unsafe_code --model llada_dist \
+  --model_args model_path=${model_path},gen_length=${length},steps=${length},block_length=${block_length},layer_skip=True,layer_cos_thr=${thr},run_tag=layerthr_${thr}
+done
