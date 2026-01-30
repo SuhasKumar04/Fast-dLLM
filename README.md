@@ -38,5 +38,4 @@ Conclusion
 This implementation provides a framework for reducing computational cost in Fast-dLLM v2 through two skipping mechanisms:
 
 1) Token-level skipping
-2)
-3) Layer-level skipping
+2) Layer-level skipping
