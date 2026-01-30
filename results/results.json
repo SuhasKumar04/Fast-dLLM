@@ -1,0 +1,352 @@
+[
+  {
+    "token_threshold": 0.9,
+    "layer_threshold": 0.9,
+    "avg_token_skip_rate": 0.016717607444419975,
+    "avg_layer_skip_rate": 0.01169095598194914,
+    "combined_flops_reduction": 0.028213118613612895,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.9,
+    "layer_threshold": 0.93,
+    "avg_token_skip_rate": 0.013507998162884644,
+    "avg_layer_skip_rate": 0.00830428459353813,
+    "combined_flops_reduction": 0.02170010849538919,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.9,
+    "layer_threshold": 0.95,
+    "avg_token_skip_rate": 0.013680695012443515,
+    "avg_layer_skip_rate": 0.004160441517030206,
+    "combined_flops_reduction": 0.017784218797962124,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.9,
+    "layer_threshold": 0.97,
+    "avg_token_skip_rate": 0.01656338612808852,
+    "avg_layer_skip_rate": 0.0033664987900092536,
+    "combined_flops_reduction": 0.019874124298739106,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.9,
+    "layer_threshold": 0.99,
+    "avg_token_skip_rate": 0.01344699828681325,
+    "avg_layer_skip_rate": 0.0009681420305140979,
+    "combined_flops_reduction": 0.014402121713101634,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.93,
+    "layer_threshold": 0.9,
+    "avg_token_skip_rate": 0.011703254006569375,
+    "avg_layer_skip_rate": 0.01203307543842338,
+    "combined_flops_reduction": 0.023595503306656676,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.93,
+    "layer_threshold": 0.93,
+    "avg_token_skip_rate": 0.009242024938802109,
+    "avg_layer_skip_rate": 0.008622602599838637,
+    "combined_flops_reduction": 0.017784937230375657,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.93,
+    "layer_threshold": 0.95,
+    "avg_token_skip_rate": 0.008142239411771286,
+    "avg_layer_skip_rate": 0.00674971334567781,
+    "combined_flops_reduction": 0.01483699497542776,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.93,
+    "layer_threshold": 0.97,
+    "avg_token_skip_rate": 0.009070783647435077,
+    "avg_layer_skip_rate": 0.0037435539563783135,
+    "combined_flops_reduction": 0.012780380635802583,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.93,
+    "layer_threshold": 0.99,
+    "avg_token_skip_rate": 0.009917311611911525,
+    "avg_layer_skip_rate": 0.0007724878310828061,
+    "combined_flops_reduction": 0.010682138440457073,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.95,
+    "layer_threshold": 0.9,
+    "avg_token_skip_rate": 0.007567211713316762,
+    "avg_layer_skip_rate": 0.010520437372967342,
+    "combined_flops_reduction": 0.018008038709366167,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.95,
+    "layer_threshold": 0.93,
+    "avg_token_skip_rate": 0.007451009755544665,
+    "avg_layer_skip_rate": 0.007787973881985273,
+    "combined_flops_reduction": 0.01518095536815934,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.95,
+    "layer_threshold": 0.95,
+    "avg_token_skip_rate": 0.006458723866420872,
+    "avg_layer_skip_rate": 0.007185605241025461,
+    "combined_flops_reduction": 0.013597919267381443,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.95,
+    "layer_threshold": 0.97,
+    "avg_token_skip_rate": 0.0071394259965242065,
+    "avg_layer_skip_rate": 0.002857265353486708,
+    "combined_flops_reduction": 0.009976292115467264,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.95,
+    "layer_threshold": 0.99,
+    "avg_token_skip_rate": 0.007780687364943304,
+    "avg_layer_skip_rate": 0.0009752832472159322,
+    "combined_flops_reduction": 0.008748382238120384,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.97,
+    "layer_threshold": 0.9,
+    "avg_token_skip_rate": 0.0032148753577125287,
+    "avg_layer_skip_rate": 0.013231656163316207,
+    "combined_flops_reduction": 0.016403993395687565,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.97,
+    "layer_threshold": 0.93,
+    "avg_token_skip_rate": 0.004127600882854371,
+    "avg_layer_skip_rate": 0.007566432271335845,
+    "combined_flops_reduction": 0.011662801941666991,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.97,
+    "layer_threshold": 0.95,
+    "avg_token_skip_rate": 0.0038429458245659333,
+    "avg_layer_skip_rate": 0.00559799682120278,
+    "combined_flops_reduction": 0.009419429847258739,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.97,
+    "layer_threshold": 0.97,
+    "avg_token_skip_rate": 0.004715495520286605,
+    "avg_layer_skip_rate": 0.0026381264190517024,
+    "combined_flops_reduction": 0.007341181866027319,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.97,
+    "layer_threshold": 0.99,
+    "avg_token_skip_rate": 0.00442351665281083,
+    "avg_layer_skip_rate": 0.0014718617141967322,
+    "combined_flops_reduction": 0.005888867562204179,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.99,
+    "layer_threshold": 0.9,
+    "avg_token_skip_rate": 0.001485390811503743,
+    "avg_layer_skip_rate": 0.013591329196230049,
+    "combined_flops_reduction": 0.015056531572229588,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.99,
+    "layer_threshold": 0.93,
+    "avg_token_skip_rate": 0.0010844012894325513,
+    "avg_layer_skip_rate": 0.008415608844872436,
+    "combined_flops_reduction": 0.009490884237222247,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.99,
+    "layer_threshold": 0.95,
+    "avg_token_skip_rate": 0.0015613295741816972,
+    "avg_layer_skip_rate": 0.0070876642115968985,
+    "combined_flops_reduction": 0.00863792760603316,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.99,
+    "layer_threshold": 0.97,
+    "avg_token_skip_rate": 0.0014440633670424637,
+    "avg_layer_skip_rate": 0.002595882242751926,
+    "combined_flops_reduction": 0.004036196991342476,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  },
+  {
+    "token_threshold": 0.99,
+    "layer_threshold": 0.99,
+    "avg_token_skip_rate": 0.0015556114054400302,
+    "avg_layer_skip_rate": 0.0011779454033280453,
+    "combined_flops_reduction": 0.002731724383463673,
+    "avg_output_length": 7.4,
+    "num_samples": 10,
+    "sample_outputs": [
+      "Write a short story about a robot.",
+      "Explain quantum computing simply.",
+      "What are the differences between Python and Java?"
+    ]
+  }
+]
