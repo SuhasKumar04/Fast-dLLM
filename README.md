@@ -40,9 +40,7 @@ This implementation provides a framework for reducing computational cost in Fast
 1) Token-level skipping
 2) Layer-level skipping
 
-======================================================================
 EVALUATION SUMMARY
-======================================================================
 
 Best FLOPs Reduction: 2.8%
   Token threshold: 0.90
